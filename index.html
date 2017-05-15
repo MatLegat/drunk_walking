@@ -1,11 +1,16 @@
 <html>
 <head>
-  <script src="js/main.js"></script>
   <script src="js/lib/chart.bundle.min.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/stateList.js"></script>
+  <script src="js/simulation.js"></script>
+  <script src="js/pathChart.js"></script>
+  <script src="js/distanceChart.js"></script>
+  <script src="js/main.js"></script>
 </head>
 <body>
   <div>
-    <input type="number" name="steps" id="steps" min="1">
+    <input type="number" name="steps" id="steps" min="1" placeholder="Steps">
     <button onclick="simulate(document.getElementById('steps').value)">Simulate</button>
   </div>
   <div>
