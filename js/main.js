@@ -1,36 +1,37 @@
 const pathCanvasId = "path-chart"
 const distanceCanvasId = "distance-chart"
+const histogramCanvasId = "histogram-chart"
 const simulateButtonId = "simulate"
 const stepsInputId = "steps"
+const replicationsInputId = "replications"
 
 window.onload = () => {
   const pathChart = new PathChart(pathCanvasId)
   const distanceChart = new DistanceChart(distanceCanvasId)
+  const histogramChart = new HistogramChart(histogramCanvasId)
 
   document.getElementById(simulateButtonId).onclick = () => {
     const steps = document.getElementById(stepsInputId).value
-    const replications = 1 //TODO create input
+    const replications = document.getElementById(replicationsInputId).value
 
     //TODO validate input
 
     let simulations = []
 
-    //TODO if for loop is too slow, make it recursive with setTimeout
     for (let i = 0; i < replications; i++) {
       simulations.push(new Simulation(steps))
     }
-
     Object.freeze(simulations)
-    console.log(simulations)
 
     if (replications == 1) {
       pathChart.updateData(simulations[0])
       distanceChart.updateData(simulations[0])
-      //TODO histogramChart.hide()
+      histogramChart.hide()
     } else {
       pathChart.hide()
       distanceChart.hide()
-      //TODO histogramChart.updateData(...)
+      const hist = new Histogram(simulations)
+      histogramChart.updateData(hist)
     }
 
   }

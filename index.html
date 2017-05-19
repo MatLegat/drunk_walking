@@ -3,18 +3,22 @@
   <script src="js/lib/chart.bundle.min.js"></script>
   <script src="js/charts/pathChart.js"></script>
   <script src="js/charts/distanceChart.js"></script>
+  <script src="js/charts/histogramChart.js"></script>
   <script src="js/state.js"></script>
   <script src="js/simulation.js"></script>
+  <script src="js/histogram.js"></script>
   <script src="js/main.js"></script>
 </head>
 <body>
   <div>
     <input type="number" name="steps" id="steps" min="1" placeholder="Steps">
+    <input type="number" name="replications" id="replications" min="1" placeholder="replications">
     <button id="simulate">Simulate</button>
   </div>
   <div>
     <canvas id="path-chart" width="200" height="200"></canvas>
     <canvas id="distance-chart" width="200" height="200"></canvas>
+    <canvas id="histogram-chart" width="200" height="200"></canvas>
   </div>
 <script>
 
