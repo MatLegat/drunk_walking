@@ -1,11 +1,16 @@
 
 class Simulation {
 
-  constructor(steps) {
+  constructor(steps, keepStates) {
     this.stateList = [new State()]
 
     for (let i = 0; i < steps; i++) {
       this.stateList.push(this.lastState.generateNextState())
+    }
+
+    if(!keepStates) {
+      // Keep only last state
+      this.stateList = [this.lastState]
     }
 
     // Make object immutable

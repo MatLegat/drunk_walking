@@ -1,27 +1,64 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <script src="js/lib/chart.bundle.min.js"></script>
-  <script src="js/charts/pathChart.js"></script>
-  <script src="js/charts/distanceChart.js"></script>
-  <script src="js/charts/histogramChart.js"></script>
-  <script src="js/state.js"></script>
-  <script src="js/simulation.js"></script>
-  <script src="js/histogram.js"></script>
-  <script src="js/main.js"></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#DCFBD2">
+  <meta name="msapplication-TileColor" content="#DCFBD2"/>
+  <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="lib/js/chart.bundle.min.js"></script>
+  <script type="text/javascript" src="js/charts/pathChart.js"></script>
+  <script type="text/javascript" src="js/charts/distanceChart.js"></script>
+  <script type="text/javascript" src="js/charts/histogramChart.js"></script>
+  <script type="text/javascript" src="js/state.js"></script>
+  <script type="text/javascript" src="js/simulation.js"></script>
+  <script type="text/javascript" src="js/histogram.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <title>Drunk Walking</title>
 </head>
 <body>
-  <div>
-    <input type="number" name="steps" id="steps" min="1" placeholder="Steps">
-    <input type="number" name="replications" id="replications" min="1" placeholder="replications">
-    <button id="simulate">Simulate</button>
+  <div class="header">
+    <h1>Drunk Walking</h1>
+    <h3><small>Simulator of a drunk man walking randomly</small></h3>
   </div>
-  <div>
+
+  <div class="holder">
+    <form class="form-inline">
+      <div class="form-group">
+        <label class="sr-only" for="steps">Steps</label>
+        <div class="input-group" id="steps-group">
+          <div class="input-group-addon">Steps</div>
+          <input type="number" class="form-control" name="steps" id="steps" value="10" min="1" max="10000" aria-describedby="steps-label">
+        </div>
+        <label class="sr-only" for="replications">Replications</label>
+        <div class="input-group" id="replications-group">
+          <div class="input-group-addon">Replications</div>
+          <input type="number" class="form-control" name="replications" id="replications" value="1" min="1" max="100000" aria-describedby="replications-label">
+        </div>
+      </div>
+      <button type="button" id="simulate" class="btn btn-info">Simulate</button>
+    </form>
+    <div class="well text-center well-hidden well-progress">
+      <p>Simulating...</p>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" id="progressbar" role="progressbar" style="width: 0%">
+          <span class="sr-only">45% Complete</span>
+        </div>
+      </div>
+      <button type="button" id="abort" class="btn btn-danger" onclick="window.location.reload()">Abort</button>
+    </div>
+  </div>
+
+  <div class="well chart well-hidden">
     <canvas id="path-chart" width="200" height="200"></canvas>
+  </div>
+  <div class="well chart well-hidden">
     <canvas id="distance-chart" width="200" height="200"></canvas>
+  </div>
+  <div class="well chart well-hidden">
     <canvas id="histogram-chart" width="200" height="200"></canvas>
   </div>
-<script>
 
-</script>
 </body>
 </html>

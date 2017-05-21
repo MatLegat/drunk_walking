@@ -3,7 +3,6 @@ class HistogramChart extends Chart {
 
   constructor(canvasId) {
     const ctx = document.getElementById(canvasId)
-    ctx.style.display = 'none'
 
     super(ctx, {
       type: 'bar',
@@ -37,7 +36,7 @@ class HistogramChart extends Chart {
     })
 
     this.hide = () => {
-      ctx.style.display = 'none'
+      ctx.parentElement.classList.add('well-hidden')
     }
 
     this.updateData = (histogram) => {
@@ -55,7 +54,7 @@ class HistogramChart extends Chart {
       }
 
       this.update()
-      ctx.style.display = 'block'
+      ctx.parentElement.classList.remove('well-hidden')
 
     }
   }

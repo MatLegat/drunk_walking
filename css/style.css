@@ -1,0 +1,68 @@
+body {
+  background: url(../img/congruent_pentagon.png);
+  min-width: 20em;
+}
+
+div.header {
+  width: 100%;
+  text-align: center;
+}
+
+form.form-inline {
+  text-align: center;
+  margin: 2em !important;
+}
+
+@media (min-width:580px){
+  input.form-control{
+    width: 7em !important;
+  }
+}
+
+button.btn:focus {
+  outline: none;
+}
+
+div.well {
+  display: block;
+  opacity: 1;
+  width: 90%;
+  min-width: 20em;
+  max-width: 90vh;
+  margin: 0 auto 2em auto;
+  background-color: #fff !important;
+  transition:
+    opacity 300ms ease-in-out,
+    min-height 300ms linear,
+    max-height 300ms linear,
+    padding 150ms linear,
+    margin 150ms linear,
+    border 150ms linear;
+}
+
+div.well.chart {
+  min-height: 20em;
+  max-height: 90vw;
+}
+
+div.well-hidden {
+  opacity: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 19px !important;
+  max-height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  border: 0px solid #e3e3e3 !important;
+}
+
+div.progress-bar {
+  transition: width 0ms ease !important;
+}
+
+div.well-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  box-shadow: 0px 3px 3px 500em rgba(0,0,0,0.25);
+  z-index: 10;
+}

@@ -3,7 +3,6 @@ class PathChart extends Chart {
 
   constructor(canvasId) {
     const ctx = document.getElementById(canvasId)
-    ctx.style.display = 'none'
 
     super(ctx, {
       type: 'line',
@@ -30,7 +29,7 @@ class PathChart extends Chart {
     })
 
     this.hide = () => {
-      ctx.style.display = 'none'
+      ctx.parentElement.classList.add('well-hidden')
     }
 
     this.updateData = (simulation) => {
@@ -50,7 +49,7 @@ class PathChart extends Chart {
       }
 
       this.update()
-      ctx.style.display = 'block'
+      ctx.parentElement.classList.remove('well-hidden')
 
     }
   }
