@@ -23,6 +23,13 @@ window.onload = () => {
     }
   }
 
+  // Enable/disable inputs and button
+  const enableForm = (enable) => {
+    document.getElementById(simulateButtonId).disabled = !enable
+    document.getElementById(stepsInputId).disabled = !enable
+    document.getElementById(replicationsInputId).disabled = !enable
+  }
+
   // Update charts
   const updateCharts = (simulations) => {
     if (simulations.length == 1) {
@@ -50,13 +57,13 @@ window.onload = () => {
     const steps = parseInt(document.getElementById(stepsInputId).value)
     const replications = parseInt(document.getElementById(replicationsInputId).value)
 
-    // Disable button
-    click.target.disabled = true
+    // Disable button and inputs
+    enableForm(false)
 
     let simulations = []
     const showPath = replications == 1
     let i = 0;
-    const chunkSize = 50
+    const chunkSize = 10
 
     // Simulates replications in async chunks, so the browser won't freeze
     const replicateChunk = () => {
@@ -69,13 +76,17 @@ window.onload = () => {
       }
       updateProgress(i/replications*100)
       if (i < replications) {  // There are still chunks left
-        setTimeout(replicateChunk, 10)
+        setTimeout(replicateChunk, 0)
       }
       else {  // No more chunks left
         Object.freeze(simulations)
         updateCharts(simulations)
-        updateProgress() // Hide progress bar
-        click.target.disabled = false
+
+        // Hide progress bar
+        updateProgress()
+
+        // Enable button and inputs
+        enableForm(true)
         click.target.blur()
       }
     }

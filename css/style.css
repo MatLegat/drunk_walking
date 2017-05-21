@@ -23,6 +23,10 @@ button.btn:focus {
   outline: none;
 }
 
+button, input {
+  transition: all 200ms ease-in-out
+}
+
 div.well {
   display: block;
   opacity: 1;
@@ -31,6 +35,7 @@ div.well {
   max-width: 90vh;
   margin: 0 auto 2em auto;
   background-color: #fff !important;
+  overflow: hidden !important;
   transition:
     opacity 300ms ease-in-out,
     min-height 300ms linear,
@@ -51,7 +56,6 @@ div.well-hidden {
   padding: 0 19px !important;
   max-height: 0 !important;
   min-height: 0 !important;
-  overflow: hidden !important;
   border: 0px solid #e3e3e3 !important;
 }
 
