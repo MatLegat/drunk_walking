@@ -31,7 +31,7 @@ class Simulation {
   }
 
   get diff() {
-    return Math.abs(this.distance - this.estimated)
+    return this.lastState.diff
   }
 
   get pathData() {

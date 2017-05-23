@@ -25,6 +25,10 @@ class HistogramChart extends Chart {
             }
           }],
           xAxes:[{
+            scaleLabel: {
+              display: true,
+              labelString: 'Final difference (range)'
+            },
             categoryPercentage: 1.0,
             barPercentage: 1.0,
         		gridLines: {

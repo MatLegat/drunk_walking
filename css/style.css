@@ -8,15 +8,20 @@ div.header {
   text-align: center;
 }
 
-form.form-inline {
+form.form-inline.input {
   text-align: center;
   margin: 2em !important;
 }
 
 @media (min-width:580px){
-  input.form-control{
+  .input input.form-control{
     width: 7em !important;
   }
+}
+
+#output-well form {
+  margin: auto;
+  max-width: 19em
 }
 
 button.btn:focus {
@@ -69,4 +74,9 @@ div.well-progress {
   right: 0;
   box-shadow: 0px 3px 3px 500em rgba(0,0,0,0.25);
   z-index: 10;
+}
+
+input.out {
+  background-color: #f5f5f5 !important;
+  cursor: default !important;
 }

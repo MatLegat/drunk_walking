@@ -23,31 +23,30 @@
     <h3><small>Simulator of a drunk man walking randomly</small></h3>
   </div>
 
-  <div class="holder">
-    <form class="form-inline">
-      <div class="form-group">
-        <label class="sr-only" for="steps">Steps</label>
-        <div class="input-group" id="steps-group">
-          <div class="input-group-addon">Steps</div>
-          <input type="number" class="form-control" name="steps" id="steps" value="10" min="1" max="10000" aria-describedby="steps-label">
-        </div>
-        <label class="sr-only" for="replications">Replications</label>
-        <div class="input-group" id="replications-group">
-          <div class="input-group-addon">Replications</div>
-          <input type="number" class="form-control" name="replications" id="replications" value="1" min="1" max="100000" aria-describedby="replications-label">
-        </div>
+  <form class="form-inline input">
+    <div class="form-group">
+      <label class="sr-only" for="steps">Steps</label>
+      <div class="input-group" id="steps-group">
+        <div class="input-group-addon">Steps</div>
+        <input type="number" class="form-control" name="steps" id="steps" value="10" min="1" max="10000">
       </div>
-      <button type="button" id="simulate" class="btn btn-info">Simulate</button>
-    </form>
-    <div class="well text-center well-hidden well-progress">
-      <p>Simulating...</p>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped active" id="progressbar" role="progressbar" style="width: 0%">
-          <span class="sr-only">45% Complete</span>
-        </div>
+      <label class="sr-only" for="replications">Replications</label>
+      <div class="input-group" id="replications-group">
+        <div class="input-group-addon">Replications</div>
+        <input type="number" class="form-control" name="replications" id="replications" value="1" min="1" max="100000">
       </div>
-      <button type="button" id="abort" class="btn btn-danger" onclick="window.location.reload()">Abort</button>
     </div>
+    <button type="button" id="simulate" class="btn btn-info">Simulate</button>
+  </form>
+
+  <div class="well text-center well-hidden well-progress">
+    <p>Simulating...</p>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped active" id="progressbar" role="progressbar" style="width: 0%">
+        <span class="sr-only">45% Complete</span>
+      </div>
+    </div>
+    <button type="button" id="abort" class="btn btn-danger" onclick="window.location.reload()">Abort</button>
   </div>
 
   <div class="well chart well-hidden">
@@ -58,6 +57,28 @@
   </div>
   <div class="well chart well-hidden">
     <canvas id="histogram-chart" width="200" height="200"></canvas>
+  </div>
+
+  <div class="well text-center well-hidden" id="output-well">
+    <form class="form-inline">
+      <div class="form-group">
+        <label class="sr-only" for="final-distance">Final distance</label>
+        <div class="input-group">
+          <div class="input-group-addon">Final distance</div>
+          <input type="text" disabled class="form-control out" name="final-distance" id="final-distance">
+        </div>
+        <label class="sr-only" for="final-est">Estimated</label>
+        <div class="input-group" id="replications-group">
+          <div class="input-group-addon">Estimated (&radic;n)</div>
+          <input type="text" disabled class="form-control out" name="final-est" id="final-est">
+        </div>
+        <label class="sr-only" for="final-diff">Difference</label>
+        <div class="input-group" id="replications-group">
+          <div class="input-group-addon">Difference</div>
+          <input type="text" disabled class="form-control out" name="final-diff" id="final-diff">
+        </div>
+      </div>
+    </form>
   </div>
 
 </body>

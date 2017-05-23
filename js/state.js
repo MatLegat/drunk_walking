@@ -30,6 +30,10 @@ class State {
     return Math.sqrt(this.step)
   }
 
+  get diff() {
+    return Math.abs(this.distance - this.estimated)
+  }
+
   get position() {
     return {x: this.x, y: this.y}
   }

@@ -5,11 +5,31 @@ const simulateButtonId = "simulate"
 const stepsInputId = "steps"
 const replicationsInputId = "replications"
 const progressBarId = "progressbar"
+const distanceOutputId = "final-distance"
+const estimatedDistanceOutputId = "final-est"
+const diffOutputId = "final-diff"
+const outputWellId = "output-well"
 
 window.onload = () => {
   const pathChart = new PathChart(pathCanvasId)
   const distanceChart = new DistanceChart(distanceCanvasId)
   const histogramChart = new HistogramChart(histogramCanvasId)
+
+  // Update final state output
+  const updateFinalOut = (lastState) => {
+    const outWell = document.getElementById(outputWellId)
+    if (lastState == null) {
+      outWell.classList.add('well-hidden')
+    } else {
+      outWell.classList.remove('well-hidden')
+      const distance = document.getElementById(distanceOutputId)
+      const estimated = document.getElementById(estimatedDistanceOutputId)
+      const diff = document.getElementById(diffOutputId)
+      distance.value = lastState.distance.toFixed(3)
+      estimated.value = lastState.estimated.toFixed(3)
+      diff.value = lastState.diff.toFixed(3)
+    }
+  }
 
   // Update progress bar
   const updateProgress = (percent) => {
@@ -35,10 +55,12 @@ window.onload = () => {
     if (simulations.length == 1) {
       pathChart.updateData(simulations[0])
       distanceChart.updateData(simulations[0])
+      updateFinalOut(simulations[0].lastState)
       histogramChart.hide()
     } else {
       pathChart.hide()
       distanceChart.hide()
+      updateFinalOut(null)
       const histogram = new Histogram(simulations)
       histogramChart.updateData(histogram)
     }
