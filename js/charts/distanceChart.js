@@ -11,7 +11,7 @@ class DistanceChart extends Chart {
           mode: 'index',
           position: 'nearest',
           callbacks: {
-            label: (tooltipItems) => (' ' + tooltipItems.yLabel.toFixed(3)),
+            label: (tooltipItems) => (' ' + tooltipItems.yLabel.toFixed(4)),
             title: (tooltipItems) => ('Step ' + tooltipItems[0].xLabel)
           }
         },

@@ -43,7 +43,7 @@ class Histogram {
 
   get chartLabels() {
     return this.classes.map((range) => {
-      return '' + range.min.toFixed(3) + ' - ' + range.max.toFixed(3)
+      return '' + range.min.toFixed(4) + ' - ' + range.max.toFixed(4)
     })
   }
 

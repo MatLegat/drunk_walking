@@ -12,8 +12,8 @@ class PathChart extends Chart {
           bodyFontStyle: 'bold',
           displayColors: false,
           callbacks: {
-            label: (tooltipItems) => ('y: ' + tooltipItems.yLabel.toFixed(3)),
-            title: (tooltipItems) => ('x: ' + tooltipItems[0].xLabel.toFixed(3))
+            label: (tooltipItems) => ('y: ' + tooltipItems.yLabel.toFixed(2)),
+            title: (tooltipItems) => ('x: ' + tooltipItems[0].xLabel.toFixed(2))
           }
         },
         legend: {
